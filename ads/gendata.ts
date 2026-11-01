@@ -50,7 +50,7 @@ async function getAnimal(): Promise<string> {
         throw new Error('no data received');
     }
     const data2 = await data1.json();
-    return data2.data[0].CommonName;
+    return data2.data[0].commonName;
 }
 
 async function main(): Promise<void> {
@@ -76,7 +76,7 @@ async function main(): Promise<void> {
 
     for (let j = 0; j < tab.length; j++) {
         tab[j].print();
-    }
+}
 }
 
 main();
