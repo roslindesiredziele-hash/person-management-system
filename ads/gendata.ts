@@ -12,4 +12,6 @@ class Person
     surname: string;
     age: number;
     pet?: string;
+
+    constructor(n: string, s: string, a: number, p?: string)
 }
