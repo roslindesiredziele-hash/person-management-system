@@ -14,7 +14,7 @@ class Person {
 
     constructor(n: string, s: string, a: number, p?: string) {
         if( a < 0 ){
-            throw new Error("Age must be a positive number");
+            throw new Error("Age cannot be negative");
         }
         this.name = n;
         this.surname = s;
