@@ -13,6 +13,9 @@ class Person {
     pet?: string;
 
     constructor(n: string, s: string, a: number, p?: string) {
+        if( a < 0 ){
+            throw new Error("Age must be a positive number");
+        }
         this.name = n;
         this.surname = s;
         this.age = a;
