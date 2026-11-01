@@ -39,7 +39,9 @@ async function getAnimal(): Promise<string> {
     return data2.data[0].CommonName;
 }
 
-const p = new Person(
+async function main(): Promise<void> 
+
+/*const p = new Person(
     "Desire",
     "Dziele",
     25
@@ -51,4 +53,4 @@ const p2 = new Person(
     faker.number.int({ min: 0, max: 100 }),
     faker.animal.type()
 );
-p2.print();
+p2.print();*/
