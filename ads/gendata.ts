@@ -6,4 +6,7 @@ console.log(fakerFR.person.firstName({ sex: 'male' }));
 console.log(fakerEN_NG.person.lastName({ sex: 'male' }));
 console.log(fakerFR.person.lastName({ sex: 'male' }));*/
 
-
+class Person
+{
+    
+}
