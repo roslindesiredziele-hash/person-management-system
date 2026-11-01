@@ -31,6 +31,12 @@ class Person {
 
 async function getAnimal(): Promise<string> {
     const address: string = "https://extinct-api.herokuapp.com/api/v1/animal/";
+    const data1 = await fetch(address);
+    if (!data1.ok) {
+        throw new Error('no data received');
+    }
+    const data2 = await data1.json();
+    return data2.CommonName;
 }
 
 const p = new Person(
@@ -46,4 +52,3 @@ const p2 = new Person(
     faker.animal.type()
 );
 p2.print();
-
