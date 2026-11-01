@@ -25,7 +25,7 @@ class Person {
     }
 
     print(): void {
-        console.log(`Name: ${this.name}, Surname: ${this.surname}, Age: ${this.age}, Pet: ${this.pet}`);
+        console.log(`${this.name} ${this.surname} is ${this.age} years old and has a ${this.pet?? "no"}. pet`);
     }
 }
 
