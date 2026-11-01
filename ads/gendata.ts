@@ -60,6 +60,23 @@ async function main(): Promise<void> {
     const tab: Person[] = [];
     tab.push(p1);
     tab.push(p2);
+
+    for (let i = 0; i < 20; i++) {
+        const _name = faker.person.firstName();
+        const _surname = faker.person.lastName();
+        const _age = faker.number.int({ min: 20, max: 65 });
+
+        const P = new Person(_name, _surname, _age);
+        if (i % 3 != 0) {
+            const _pet = await getAnimal();
+            P.pet = _pet;
+        }
+        tab.push(P);
+    sq,e}
+
+    for (let j = 0; j < tab.length; j++) {
+        tab[j].print();
+    }
 }
 
 main();
