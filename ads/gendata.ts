@@ -72,7 +72,7 @@ async function main(): Promise<void> {
             P.pet = _pet;
         }
         tab.push(P);
-    sq,e}
+    }
 
     for (let j = 0; j < tab.length; j++) {
         tab[j].print();
