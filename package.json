@@ -1,0 +1,17 @@
+{
+  "name": "person-management-system",
+  "version": "1.0.0",
+  "description": "Full-stack person management application built with Angular, Express, TypeScript, SQLite, and Faker. Features REST APIs, data persistence, sample data generation, and reactive Angular forms.",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "roslindesiredziele@gmail.com"
+  },
+  "license": "ISC",
+  "author": "Desire Roslin Dziele",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
