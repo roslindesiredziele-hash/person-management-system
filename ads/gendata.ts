@@ -40,6 +40,12 @@ async function getAnimal(): Promise<string> {
 }
 
 async function main(): Promise<void> 
+{
+    const p1 = new Person("Edward", "Smith", 30);
+    const p2 = new Person("John", "Doe", 25, "Dog");
+    p1.print();
+    p2.print();
+}
 
 /*const p = new Person(
     "Desire",
