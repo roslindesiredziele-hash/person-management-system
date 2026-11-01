@@ -59,7 +59,7 @@ async function main(): Promise<void> {
     p1.print();
     p2.print();
 
-    const tab: person[] = [];
+    const tab: Person[] = [];
 }
 
 main();
