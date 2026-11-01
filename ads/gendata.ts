@@ -29,9 +29,8 @@ class Person {
     }
 }
 
-async function getAnimal(): Promise<string>
-{
-    
+async function getAnimal(): Promise<string> {
+    const address: string = "https://extinct-api.herokuapp.com/api/v1/animal/";
 }
 
 const p = new Person(
