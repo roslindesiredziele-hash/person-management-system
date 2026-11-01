@@ -25,14 +25,26 @@ class Person {
     }
 
     print(): void {
-        console.log(`${this.name} ${this.surname} is ${this.age} years old and has a ${this.pet?? "no"}. pet`);
+        console.log(`${this.name} ${this.surname} is ${this.age} years old and has ${this.pet ?? "no"} pet`);
     }
 }
 
-/*const p = new Person(
-    "James",
-    "Black",
-    77
+async function getAnimal(): Promise<string>
+{
+    
+}
+
+const p = new Person(
+    "Desire",
+    "Dziele",
+    25
 );
-console.log(p);*/
+p.print();
+const p2 = new Person(
+    faker.person.firstName(),
+    faker.person.lastName(),
+    faker.number.int({ min: 0, max: 100 }),
+    faker.animal.type()
+);
+p2.print();
 
