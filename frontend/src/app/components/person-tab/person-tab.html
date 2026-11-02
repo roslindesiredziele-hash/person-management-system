@@ -10,11 +10,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let person of persons()">
-      <td>{{ person.name }}</td>
-      <td>{{ person.surname }}</td>
-      <td>{{ person.age }}</td>
-      <td>{{ person.pet || 'N/A' }}</td>
+    <tr @for(p of peopleTab)>
+      <td>{{ p.name }}</td>
+      <td>{{ p.surname }}</td>
+      <td>{{ p.age }}</td>
+      <td>{{ p.pet }}</td>
     </tr>
   </tbody>
 </table>
