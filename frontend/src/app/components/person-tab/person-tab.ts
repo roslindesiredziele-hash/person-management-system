@@ -9,5 +9,7 @@ import { PersonService } from '../../services/person-service';
 })
 export class PersonTab {
   private readonly personServ = inject(PersonService);
+  protected readonly peopleTab = this.personServ.peopleR;
+
   
 }
