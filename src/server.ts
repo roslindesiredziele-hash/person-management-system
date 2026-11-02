@@ -9,4 +9,3 @@ app.get('/api/Persons', (req: Request, res: Response) => {
     res.json(tab);
 });
 
-app.listen(port, () => {
