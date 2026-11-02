@@ -8,5 +8,6 @@ import { PersonService } from '../../services/person-service';
   templateUrl: './person-tab.html',
 })
 export class PersonTab {
+  private readonly personServ = inject(PersonService);
   
 }
