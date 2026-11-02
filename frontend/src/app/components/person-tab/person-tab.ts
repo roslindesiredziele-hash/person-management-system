@@ -11,5 +11,6 @@ export class PersonTab {
   private readonly personServ = inject(PersonService);
   protected readonly peopleTab = this.personServ.peopleR;
 
-  
+  ngOnInit(): void {
+    
 }
