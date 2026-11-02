@@ -6,3 +6,5 @@ export const personRoutertab = Router();
 personRoutertab.get('/', (req: Request, res: Response) => {
     res.json(tab);
 });
+
+personRoutertab.get('/:id', (req: Request, res: Response) => {
