@@ -1,1 +1,20 @@
 <p>person-tab works!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th>Pet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons()">
+      <td>{{ person.name }}</td>
+      <td>{{ person.surname }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.pet || 'N/A' }}</td>
+    </tr>
+  </tbody>
+</table>
