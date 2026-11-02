@@ -1,1 +1,16 @@
 <p>person-form works!</p>
+<form [formGroup]="persForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label for="im">Name: </label>
+        <input id="im" type="text" formControlName="name" />
+    </p>
+    <p>
+        <label for="naz">Surname: </label>
+        <input id="naz" type="text" formControlName="surname" />
+    </p>
+    <label for="ag">Age: </label>
+    <input id="ag" type="number" formControlName="age" />
+
+    <button type="submit">Send</button>
+</form>
+<p>person-form works!</p>
