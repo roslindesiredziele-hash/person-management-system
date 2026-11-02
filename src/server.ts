@@ -2,7 +2,7 @@ import express from "express";
 import { Person } from "./models/person_model.ts";
 import { Express, Request, Response } from "express";
 
-const app = express();
+const app: Express = express();
 const port: number = 2000;
 
 app.use(express.json());
