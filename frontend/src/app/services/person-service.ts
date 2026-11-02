@@ -12,5 +12,10 @@ export class PersonService {
     readonly persons = this._persons.asReadonly();
 
     loadPersons(): void {
-        
+        this.http.get<Person[]>(this.url)
+            .pipe(
+                tap(persons => this._persons.set(persons))
+            )
+            .subscribe();
+    }
 }
