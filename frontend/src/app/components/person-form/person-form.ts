@@ -22,6 +22,13 @@ export class PersonForm {
 
   onSubmit(): void {
     console.log("Form submitted:";
-      const newpers: Person = this.persForm.getRawValue();
-      this.personServ.savePerson(newpers).subscribe(
+    const newpers: Person = this.persForm.getRawValue();
+    this.personServ.savePerson(newpers).subscribe(
+      {
+        next: (response) => { this.persForm.reset(); },
+        error: () => { console.error("Error saving person"); }
+      }
+    );
+
+  }
 }
