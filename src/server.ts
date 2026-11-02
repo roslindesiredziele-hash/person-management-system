@@ -1,4 +1,5 @@
 import express from "express";
+import morgan from "morgan";
 import { Person } from "./models/person_model.ts";
 import { Express, Request, Response } from "express";
 import { personRouterDb } from "./routes/person-routes.ts";
@@ -8,7 +9,7 @@ const port: number = 2000;
 
 app.use(express.json());
 
-
+app.use(morgan("dev"));
 app.use(express.static("./public"));
 
 app.use('/api/personstab',personRouterTab);
