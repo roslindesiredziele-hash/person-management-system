@@ -9,7 +9,7 @@ export class PersonService {
     private readonly url = "api/persons";
 
     private readonly _persons = signal<Person[]>([]);
-    readonly personR = this._persons.asReadonly();
+    readonly peopleR = this._persons.asReadonly();
 
     loadPeople(): void {
         this.http.get<Person[]>(this.url).subscribe(
