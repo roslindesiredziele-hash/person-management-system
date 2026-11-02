@@ -7,6 +7,12 @@ const port: number = 2000;
 
 app.use(express.json());
 
+const tab: Person[] = [];
+const p1: Person = {name: "John", surname: "Smith", age: 22, pet: "dog"};
+const p2: Person = {name: "Mary", surname: "Brown",age: 66};
+tab.push(p1);
+tab.push(p2);
+
 app.get('/api/Persons', (req: Request, res: Response) => {
     res.json(tab);
 });
