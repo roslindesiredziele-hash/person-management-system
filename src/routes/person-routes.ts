@@ -87,4 +87,10 @@ personRouterDb.post('/', async (req: Request, res: Response) => {
         return;
     }
 
-    
+    const pers = await db.get<PersonDb>(
+        'INSERT INTO people (name, surname, age, pet) VALUES (?, ?, ?, ?) RETURNING id, firstName, lastName',
+        [name, surname, age, pet]
+    );
+
+    res.status(201).json(pers);
+});
