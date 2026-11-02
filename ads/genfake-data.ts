@@ -7,9 +7,12 @@ const db = await open({
     driver: sqlite3.Database
 });
 
-const HOW_MANY = 5;
+// Default to 25 if no argument is supplied
+const count = Number(process.argv[2]) || 25;
 
-for (let i = 0; i < HOW_MANY; i++) {
+console.log(`Generating ${count} fake people...`);
+
+for (let i = 0; i < count; i++) {
     await db.run(
         `
         INSERT INTO people (name, surname, age, pet)
@@ -18,7 +21,7 @@ for (let i = 0; i < HOW_MANY; i++) {
         [
             faker.person.firstName(),
             faker.person.lastName(),
-            faker.number.int({ min: 18, max: 65 }),
+            faker.number.int({ min: 18, max: 80 }),
             faker.datatype.boolean()
                 ? faker.animal.petName()
                 : null
@@ -26,6 +29,6 @@ for (let i = 0; i < HOW_MANY; i++) {
     );
 }
 
-console.log(`${HOW_MANY} fake persons added.`);
+console.log(`${count} fake people added successfully.`);
 
 await db.close();
