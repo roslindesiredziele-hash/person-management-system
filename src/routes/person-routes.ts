@@ -18,3 +18,21 @@ personRoutertab.get('/:id', (req: Request, res: Response) => {
 });
 
 personRoutertab.post('/', (req: Request, res: Response) => {
+    const { name, surname, age, pet } = req.body;
+    if(!name || typeof(name) !== 'string' || name.trim() === '') {
+        res.status(400).json({ error: 'wrong name' });
+        return;
+    }
+    if(!surname || typeof(surname) !== 'string' || surname.trim() === '') {
+        res.status(400).json({ error: 'wrong surname' });
+        return;
+    }
+    if(!age || typeof(age) !== 'number' || age < 0) {
+        res.status(400).json({ error: 'wrong age' });
+        return;
+    }
+    if(pet && (typeof(pet) !== 'string' || pet.trim() === '')) {
+        res.status(400).json({ error: 'wrong pet' });
+        return;
+    }
+});
