@@ -63,3 +63,5 @@ personRouterDb.get('/:id', (req: Request, res: Response) => {
         }
     }
 });
+
+personRouterDb.post('/', async (req: Request, res: Response) => {
