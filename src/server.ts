@@ -40,7 +40,7 @@ app.post('/api/Persons', (req: Request, res: Response) => {
         return;
     }
 
-
+const pers: Person = { name, surname, age, pet };
 });
 
 app.listen(port, () => {
