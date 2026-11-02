@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { PersonService } from '../../services/person-service';
-
+';
+import { Person } from '../../models/person_model-Front';
 
 @Component({
   imports: [],
