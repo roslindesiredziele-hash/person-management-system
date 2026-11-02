@@ -5,3 +5,5 @@ export const db = await open({
     filename: './data/app.sqlite3',
     driver: sqlite3.Database
 });
+
+awiat db.exec(`
