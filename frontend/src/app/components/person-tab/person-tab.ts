@@ -12,5 +12,6 @@ export class PersonTab {
   protected readonly peopleTab = this.personServ.peopleR;
 
   ngOnInit(): void {
-    
+    this.personServ.loadPeople();
+  }
 }
