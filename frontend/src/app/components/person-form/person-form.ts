@@ -11,5 +11,6 @@ import { Person } from '../../models/person_model-Front';
 })
 export class PersonForm {
   private readonly forbuilder = inject(NonNullableFormBuilder);
+  private readonly personServ = inject(PersonService);
   
 }
