@@ -9,7 +9,7 @@ export class PersonService {
     private readonly url = "api/persons";
 
     private readonly _persons = signal<Person[]>([]);
-    readonly persons = this._persons.asReadonly();
+    readonly personR = this._persons.asReadonly();
 
     loadPersons(): void {
         this.http.get<Person[]>(this.url).subscribe(
@@ -26,5 +26,15 @@ export class PersonService {
     }
 
     savePerson(person: Person): Observable<Person> {
-        
+        return this.http.post<Person>(this.url,pers).pipe(
+            tap(
+                () => {
+                    this.loadPersons();
+                },
+                (error) => {
+                    console.error("problem with saving data:", error);
+                }
+            )
+        );
+    }  
 }
