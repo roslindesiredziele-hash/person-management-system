@@ -22,6 +22,7 @@ app.get('/api/Persons/:id', (req: Request, res: Response) => {
 });
 
 app.post('/api/Persons', (req: Request, res: Response) => {
+    const { name, surname, age, pet } = req.body;
     
 
 app.listen(port, () => {
