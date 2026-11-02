@@ -1,4 +1,4 @@
-<p>person-tab works!</p>
+<h2>Add New Person</h2>
 
 <table>
     <thead>
@@ -10,14 +10,13 @@
         </tr>
     </thead>
     <tbody>
-        @for(p of peopleTab(); track p.name)
-        {
+        @for (p of peopleTab(); track p.name) {
         <tr>
             <td>{{ p.name }}</td>
             <td>{{ p.surname }}</td>
-            <td>{{ p.age }} years</td>
+            <td>{{ p.age }}</td>
             <td>
-                @if(p.pet) {
+                @if (p.pet) {
                 {{ p.pet }}
                 } @else {
                 ---
