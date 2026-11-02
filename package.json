@@ -30,6 +30,7 @@
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
     "@types/node": "^26.6.6",
+    "tsc": "^2.0.4",
     "typescript": "^5.9.3"
   },
   "allowScripts": {
