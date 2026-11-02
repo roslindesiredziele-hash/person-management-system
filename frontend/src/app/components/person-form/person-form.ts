@@ -19,4 +19,9 @@ export class PersonForm {
       age: <number>(0),
     }
   );
+
+  onSubmit(): void {
+    console.log("Form submitted:";
+      const newpers: Person = this.persForm.getRawValue();
+      this.personServ.savePerson(newpers).subscribe(
 }
