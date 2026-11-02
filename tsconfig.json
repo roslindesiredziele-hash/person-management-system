@@ -9,6 +9,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "rewriteRelativeImportExtensions": true,
+    "allowImportingTsExtensions": true,
     "skipLibCheck": true
   },
   "include": ["src"],
