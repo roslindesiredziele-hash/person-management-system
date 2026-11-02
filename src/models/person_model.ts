@@ -4,3 +4,7 @@ export interface Person{
    age: number;
    pet? : string;
 }
+
+export interface PersonDb extends Person{
+   id: number;
+}
