@@ -11,7 +11,7 @@ export class PersonService {
     private readonly _persons = signal<Person[]>([]);
     readonly personR = this._persons.asReadonly();
 
-    loadPersons(): void {
+    loadPeople(): void {
         this.http.get<Person[]>(this.url).subscribe(
             {
                 next: (data) => {
@@ -29,7 +29,7 @@ export class PersonService {
         return this.http.post<Person>(this.url,pers).pipe(
             tap(
                 () => {
-                    this.loadPersons();
+                    this.loadPeople();
                 },
                 (error) => {
                     console.error("problem with saving data:", error);
