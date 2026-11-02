@@ -7,7 +7,7 @@ const db = await open({
     driver: sqlite3.Database
 });
 
-const HOW_MANY = 25;
+const HOW_MANY = 5;
 
 for (let i = 0; i < HOW_MANY; i++) {
     await db.run(
