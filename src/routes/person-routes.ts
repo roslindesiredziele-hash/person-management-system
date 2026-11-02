@@ -65,3 +65,9 @@ personRouterDb.get('/:id', (req: Request, res: Response) => {
 });
 
 personRouterDb.post('/', async (req: Request, res: Response) => {
+    const { name, surname, age, pet } = req.body;
+    if(!name || typeof(name) !== 'string' || name.trim() === '') {
+        console.log(`wrong name requested: ${req.body.name}`);
+        res.status(400).json({ error: 'wrong name' });
+        return;
+    }
