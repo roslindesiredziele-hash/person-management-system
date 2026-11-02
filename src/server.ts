@@ -14,8 +14,10 @@ app.get('/api/Persons/:id', (req: Request, res: Response) => {
     if (!Number.isInteger(num) || num < 0 || num >= tab.length) {
         console.log(`wrong id requested: ${req.params.id}`);
         res.status(400).json({ error: `wrong id requested: ${req.params.id}` });
-    } 
-    });
+    } else {
+        res.json(tab[num]);
+    }
+});
 
 app.listen(port, () => {
     console.log(`My Server is running at http://localhost:${port}`);
