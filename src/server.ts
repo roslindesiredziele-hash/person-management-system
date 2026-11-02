@@ -23,7 +23,10 @@ app.get('/api/Persons/:id', (req: Request, res: Response) => {
 
 app.post('/api/Persons', (req: Request, res: Response) => {
     const { name, surname, age, pet } = req.body;
-    
+    if(!name || typeof(name) !== 'string' || name.trim() === '') {
+        res.status(400).json({ error: 'Invalid name' });
+        return;
+    }
 
 app.listen(port, () => {
     console.log(`My Server is running at http://localhost:${port}`);
