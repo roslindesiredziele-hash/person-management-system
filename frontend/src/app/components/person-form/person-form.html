@@ -1,15 +1,36 @@
 <h2>Add New Person</h2>
-<form [formGroup]="persForm" (ngSubmit)="onSubmit()">
-    <p>
-        <label for="im">Name: </label>
-        <input id="im" type="text" formControlName="name" />
-    </p>
-    <p>
-        <label for="naz">Surname: </label>
-        <input id="naz" type="text" formControlName="surname" />
-    </p>
-    <label for="ag">Age: </label>
-    <input id="ag" type="number" formControlName="age" />
 
-    <button type="submit">Send</button>
+<form [formGroup]="persForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="im">Name</label>
+    <input
+      id="im"
+      type="text"
+      formControlName="name"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="naz">Surname</label>
+    <input
+      id="naz"
+      type="text"
+      formControlName="surname"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="ag">Age</label>
+    <input
+      id="ag"
+      type="number"
+      formControlName="age"
+    />
+  </div>
+
+  <button type="submit">
+    Add Person
+  </button>
+
 </form>
