@@ -7,11 +7,11 @@ export const db = await open({
 });
 
 await db.exec(`
-    CREATE TABLE IF NOT EXISTS people )
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    surname TEXT NOT NULL, 
-    age INTEGER NOT NULL,
-    pet TEXT
-    );
+    CREATE TABLE IF NOT EXISTS people (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        surname TEXT NOT NULL, 
+        age INTEGER NOT NULL,
+        pet TEXT
+    )
 `);
