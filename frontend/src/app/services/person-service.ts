@@ -15,11 +15,11 @@ export class PersonService {
         this.http.get<Person[]>(this.url).subscribe(
             {
                 next: (data) => {
-                    this._persons.set(data);
                     console.log("Persons loaded successfully:", data);
+                    this._persons.set(data);
                 },
-                error: (error) => {
-                    console.error("problem with getting data:", error);
+                error: () => {
+                    console.error("problem with getting data:");
                 }
             }
         );

@@ -51,19 +51,19 @@ personRoutertab.post('/', async (req: Request, res: Response) => {
 
 export const personRouterDb = Router();
 
-personRouterDb.get('/', (req: Request, res: Response) => {
-    const peopleList = db.all<PersonDb>('SELECT id, name, surname, age, pet FROM people ORDER BY id');
+personRouterDb.get('/', async (req: Request, res: Response) => {
+    const peopleList = await db.all<PersonDb>('SELECT id, name, surname, age, pet FROM people ORDER BY id');
     res.json(peopleList);
 });
 
-personRouterDb.get('/:id', (req: Request, res: Response) => {
+personRouterDb.get('/:id', async (req: Request, res: Response) => {
     const num = Number(req.params.id);
     if (!Number.isInteger(num) || num < 0) {
         console.log(`wrong id requested: ${req.params.id}`);
         res.status(400).json({ error: `wrong id requested: ${req.params.id}` });
     } else {
 
-        const person = db.get<PersonDb>('SELECT id, name, surname, age, pet FROM people WHERE id = ?', num);
+        const person = await db.get<PersonDb>('SELECT id, name, surname, age, pet FROM people WHERE id = ?', num);
         if (!person) {
             res.status(404).json({ error: `Person with id ${num} not found` });
         } else {
