@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NonNullFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { PersonService } from '../../services/person-service';
 import { Person } from '../../models/person_model-Front';
 
@@ -10,5 +10,6 @@ import { Person } from '../../models/person_model-Front';
   templateUrl: './person-form.html',
 })
 export class PersonForm {
+  private readonly forbuilder = inject(NonNullableFormBuilder);
   
 }
