@@ -18,7 +18,7 @@ for (let i = 0; i < HOW_MANY; i++) {
         [
             faker.person.firstName(),
             faker.person.lastName(),
-            faker.number.int({ min: 18, max: 80 }),
+            faker.number.int({ min: 18, max: 65 }),
             faker.datatype.boolean()
                 ? faker.animal.petName()
                 : null
