@@ -45,4 +45,5 @@ export const personRouterDb = Router();
 
 personRouterDb.get('/', (req: Request, res: Response) => {
     const peopleList = db.all<PersonDb>('SELECT id, name, surname, age, pet FROM people ORDER BY id');
-    
+    res.json(peopleList);
+});
