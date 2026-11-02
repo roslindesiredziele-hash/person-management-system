@@ -6,6 +6,7 @@ const app: Express = express();
 const port: number = 2000;
 
 app.use(express.json());
+app.use(express.static("./public"));
 
 const tab: Person[] = [];
 const p1: Person = {name: "John", surname: "Smith", age: 22, pet: "dog"};
