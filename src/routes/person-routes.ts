@@ -40,3 +40,7 @@ personRoutertab.post('/', (req: Request, res: Response) => {
     tab.push(pers);
     res.status(201).json(pers);
 });
+
+export const personRouterDb = Router();
+
+personRouterDb.get('/', (req: Request, res: Response) => {
