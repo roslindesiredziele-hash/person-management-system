@@ -1,20 +1,29 @@
 <p>person-tab works!</p>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Age</th>
-      <th>Pet</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr @for(p of peopleTab)>
-      <td>{{ p.name }}</td>
-      <td>{{ p.surname }}</td>
-      <td>{{ p.age }}</td>
-      <td>{{ p.pet }}</td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Pet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(p of peopleTab)
+        {
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.surname }}</td>
+            <td>{{ p.age }} years</td>
+            <td>
+                @if(p.pet) {
+                {{ p.pet }}
+                } @else {
+                ---
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
 </table>
