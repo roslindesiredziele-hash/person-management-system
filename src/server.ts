@@ -9,3 +9,6 @@ app.get('/api/Persons', (req: Request, res: Response) => {
     res.json(tab);
 });
 
+app.listen(port, () => {
+    console.log(`My Server is running at http://localhost:${port}`);
+}); 
