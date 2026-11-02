@@ -8,3 +8,11 @@ personRoutertab.get('/', (req: Request, res: Response) => {
 });
 
 personRoutertab.get('/:id', (req: Request, res: Response) => {
+    const num = Number(req.params.id);
+    if (!Number.isInteger(num) || num < 0 || num >= tab.length) {
+        console.log(`wrong id requested: ${req.params.id}`);
+        res.status(400).json({ error: `wrong id requested: ${req.params.id}` });
+    } else {
+        res.json(tab[num]);
+    }
+});
