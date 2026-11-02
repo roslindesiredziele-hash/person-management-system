@@ -25,7 +25,7 @@ export class PersonService {
         );
     }
 
-    savePerson(person: Person): Observable<Person> {
+    savePerson(pers: Person): Observable<Person> {
         return this.http.post<Person>(this.url,pers).pipe(
             tap(
                 () => {
