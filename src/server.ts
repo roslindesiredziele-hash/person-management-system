@@ -1,12 +1,18 @@
 import express from "express";
 import { Person } from "./models/person_model.ts";
 import { Express, Request, Response } from "express";
+import { personRouterDb } from "./routes/person-routes.ts";
 
 const app: Express = express();
 const port: number = 2000;
 
 app.use(express.json());
+
+
 app.use(express.static("./public"));
+
+app.use('/api/personstab',personRouterTab);
+app.use('/api/persons',personRouterDb)
 
 const tab: Person[] = [];
 const p1: Person = {name: "John", surname: "Smith", age: 22, pet: "dog"};
