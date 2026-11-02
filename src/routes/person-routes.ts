@@ -1,5 +1,13 @@
 import { Router, Request, Response } from "express";
 import { Person, PersonDb} from "../models/person_model.ts";
+import { db } from "../db.ts";
+
+const tab: Person[] = [];
+const p1: Person = {name: "John", surname: "Smith", age: 22, pet: "dog"};
+const p2: Person = {name: "Mary", surname: "Brown",age: 66};
+tab.push(p1);
+tab.push(p2);
+
 
 export const personRoutertab = Router();
 
