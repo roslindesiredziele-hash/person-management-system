@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { PersonService } from '../../services/person-service';
 
 
 @Component({
