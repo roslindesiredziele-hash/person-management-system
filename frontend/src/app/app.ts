@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PersonForm } from './components/person-form/person-form';
-
+import { PersonTab } from './components/person-tab/person-tab';
 
 @Component({
   imports: [RouterOutlet],
