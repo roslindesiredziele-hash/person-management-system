@@ -17,7 +17,7 @@ personRoutertab.get('/:id', (req: Request, res: Response) => {
     }
 });
 
-personRoutertab.post('/', (req: Request, res: Response) => {
+personRoutertab.post('/', async (req: Request, res: Response) => {
     const { name, surname, age, pet } = req.body;
     if(!name || typeof(name) !== 'string' || name.trim() === '') {
         res.status(400).json({ error: 'wrong name' });
@@ -47,3 +47,5 @@ personRouterDb.get('/', (req: Request, res: Response) => {
     const peopleList = db.all<PersonDb>('SELECT id, name, surname, age, pet FROM people ORDER BY id');
     res.json(peopleList);
 });
+
+personRouterDb.get('/:id', (req: Request, res: Response) => {
