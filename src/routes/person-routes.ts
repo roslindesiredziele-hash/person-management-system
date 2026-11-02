@@ -16,3 +16,5 @@ personRoutertab.get('/:id', (req: Request, res: Response) => {
         res.json(tab[num]);
     }
 });
+
+personRoutertab.post('/', (req: Request, res: Response) => {
