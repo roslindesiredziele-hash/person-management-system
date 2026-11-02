@@ -24,9 +24,24 @@ app.get('/api/Persons/:id', (req: Request, res: Response) => {
 app.post('/api/Persons', (req: Request, res: Response) => {
     const { name, surname, age, pet } = req.body;
     if(!name || typeof(name) !== 'string' || name.trim() === '') {
-        res.status(400).json({ error: 'Invalid name' });
+        res.status(400).json({ error: 'wrong name' });
         return;
     }
+    if(!surname || typeof(surname) !== 'string' || surname.trim() === '') {
+        res.status(400).json({ error: 'wrong surname' });
+        return;
+    }
+    if(!age || typeof(age) !== 'number' || age < 0) {
+        res.status(400).json({ error: 'wrong age' });
+        return;
+    }
+    if(!pet || typeof(pet) !== 'string' || pet.trim() === '') {
+        res.status(400).json({ error: 'wrong pet' });
+        return;
+    }
+
+    
+});
 
 app.listen(port, () => {
     console.log(`My Server is running at http://localhost:${port}`);
