@@ -11,6 +11,8 @@ app.get('/api/Persons', (req: Request, res: Response) => {
 
 app.get('/api/Persons/:id', (req: Request, res: Response) => {
     const num = Number(req.params.id);
+    if(!Number.isInteger(num) || num < 0 || num >= tab.length) {
+        
 });
 
 app.listen(port, () => {
