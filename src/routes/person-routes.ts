@@ -35,4 +35,8 @@ personRoutertab.post('/', (req: Request, res: Response) => {
         res.status(400).json({ error: 'wrong pet' });
         return;
     }
+
+    const pers: Person = { name, surname, age, pet };
+    tab.push(pers);
+    res.status(201).json(pers);
 });
