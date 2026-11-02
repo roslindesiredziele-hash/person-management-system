@@ -35,12 +35,12 @@ app.post('/api/Persons', (req: Request, res: Response) => {
         res.status(400).json({ error: 'wrong age' });
         return;
     }
-    if(!pet || typeof(pet) !== 'string' || pet.trim() === '') {
+    if(pet && (typeof(pet) !== 'string' || pet.trim() === '')) {
         res.status(400).json({ error: 'wrong pet' });
         return;
     }
 
-    
+
 });
 
 app.listen(port, () => {
