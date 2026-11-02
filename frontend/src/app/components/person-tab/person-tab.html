@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        @for(p of peopleTab)
+        @for(p of peopleTab(); track p.name)
         {
         <tr>
             <td>{{ p.name }}</td>
