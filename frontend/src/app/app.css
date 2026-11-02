@@ -1,0 +1,11 @@
+h1{
+    text-align: center;
+    color: coral;
+    background-color:beige;
+}
+
+:host{
+    display: block;
+    background-color: lavender;
+    min-height: 100vh;
+}
