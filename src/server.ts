@@ -41,6 +41,8 @@ app.post('/api/Persons', (req: Request, res: Response) => {
     }
 
 const pers: Person = { name, surname, age, pet };
+tab.push(pers);
+res.status(201).json(pers);
 });
 
 app.listen(port, () => {
