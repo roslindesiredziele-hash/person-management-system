@@ -10,4 +10,7 @@ export class PersonService {
 
     private readonly _persons = signal<Person[]>([]);
     readonly persons = this._persons.asReadonly();
+
+    loadPersons(): void {
+        
 }
