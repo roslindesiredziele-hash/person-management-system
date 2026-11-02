@@ -1,4 +1,5 @@
-import { Service } from '@angular/core';
+import { Service, inject, signal } from '@angular/core';
+
 
 @Service()
 export class Person {}
