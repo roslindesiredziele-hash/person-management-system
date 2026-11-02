@@ -12,10 +12,16 @@ export class PersonService {
     readonly persons = this._persons.asReadonly();
 
     loadPersons(): void {
-        this.http.get<Person[]>(this.url)
-            .pipe(
-                tap(persons => this._persons.set(persons))
-            )
-            .subscribe();
+        this.http.get<Person[]>(this.url).subscribe(
+            {
+                next: (data) => {
+                    this._persons.set(data);
+                    console.log("Persons loaded successfully:", data);
+                },
+                error: (error) => {
+                    console.error("problem with getting data:", error);
+                }
+            }
+        );
+            }
     }
-}
