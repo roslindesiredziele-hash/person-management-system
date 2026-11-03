@@ -8,9 +8,15 @@ const db = await open({
 });
 
 // Default to 25 if no argument is supplied
-const count = Number(process.argv[2]) || 25;
+const count = Number(process.argv[2]) || 10;
+
+if (!Number.isInteger(count) || count <= 0) {
+    console.error('Usage: npm run gfd -- <positive-number>');
+    process.exit(1);
+}
 
 console.log(`Generating ${count} fake people...`);
+
 
 for (let i = 0; i < count; i++) {
     await db.run(
