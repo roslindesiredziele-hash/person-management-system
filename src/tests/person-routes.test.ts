@@ -15,3 +15,18 @@ describe('GET /api/persons', () => {
     });
 
 });
+
+it('should create a new person', async () => {
+
+    const res = await request(app)
+        .post('/api/persons')
+        .send({
+            name: 'Test',
+            surname: 'User',
+            age: 20
+        });
+
+    expect(res.status).toBe(201);
+    expect(res.body.name).toBe('Test');
+
+});
