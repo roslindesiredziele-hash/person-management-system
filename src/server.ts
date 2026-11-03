@@ -95,3 +95,12 @@ app.put('/api/Persons/:id', (req: Request, res: Response) => {
 });
 
 app.delete('/api/Persons/:id', (req: Request, res: Response) => {
+    const num = Number(req.params.id);
+    if (!Number.isInteger(num) || num < 0 || num >= tab.length) {
+        console.log(`wrong id requested: ${req.params.id}`);
+        res.status(400).json({ error: `wrong id requested: ${req.params.id}` });
+    } else {
+        const deletedPerson = tab.splice(num, 1)[0];
+        res.json(deletedPerson);
+    }
+});
