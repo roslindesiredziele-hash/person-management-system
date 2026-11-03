@@ -124,3 +124,46 @@ personRouterDb.delete('/:id', async (req: Request, res: Response) => {
 });
 
 personRouterDb.put('/:id', async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id <= 0) {
+        console.log(`wrong id requested: ${req.params.id}`);
+        res.status(400).json({ error: `wrong id requested: ${req.params.id}` });
+        return;
+    }
+
+    const { name, surname, age, pet } = req.body;
+    if(!name || typeof(name) !== 'string' || name.trim() === '') {
+        console.log(`wrong name requested: ${req.body.name}`);
+        res.status(400).json({ error: 'wrong name' });
+        return;
+    }
+    if(!surname || typeof(surname) !== 'string' || surname.trim() === '') {
+        console.log(`wrong surname requested: ${req.body.surname}`);
+        res.status(400).json({ error: 'wrong surname' });
+        return;
+    }
+    if(!age || typeof(age) !== 'number' || age < 0) {
+        console.log(`wrong age requested: ${req.body.age}`);
+        res.status(400).json({ error: 'wrong age' });
+        return;
+    }
+    if(pet && (typeof(pet) !== 'string' || pet.trim() === '')) {
+        console.log(`wrong pet requested: ${req.body.pet}`);
+        res.status(400).json({ error: 'wrong pet' });
+        return;
+    }
+
+    const updated = await db.get<PersonDb>(
+        'UPDATE people SET name = ?, surname = ?, age = ?, pet = ? WHERE id = ? RETURNING id, name, surname, age, pet',
+        [name, surname, age, pet, id]
+    );
+
+    if (!updated) {
+        console.log(`Person with id ${id} not found`);
+        res.status(404).json({ error: `Person with id ${id} not found` });
+        return;
+    }
+    
+    res.json(updated);
+});
