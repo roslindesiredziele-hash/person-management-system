@@ -122,3 +122,5 @@ personRouterDb.delete('/:id', async (req: Request, res: Response) => {
         res.status(200).json({ message: `Person with id ${id} deleted successfully` });
     }
 });
+
+personRouterDb.put('/:id', async (req: Request, res: Response) => {
