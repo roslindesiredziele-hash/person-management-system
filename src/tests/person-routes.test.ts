@@ -76,3 +76,22 @@ it('should update person', async () => {
 
 });
 
+it('should delete person', async () => {
+
+    const create = await request(app)
+        .post('/api/persons')
+        .send({
+            name: 'Delete',
+            surname: 'Me',
+            age: 22
+        });
+
+    const id = create.body.id;
+
+    const res = await request(app)
+        .delete(`/api/persons/${id}`);
+
+    expect(res.status).toBe(200);
+
+});
+
