@@ -62,3 +62,6 @@ res.status(201).json(pers);
 app.listen(port, () => {
     console.log(`My Server is running at http://localhost:${port}`);
 });
+
+app.put('/api/Persons/:id', (req: Request, res: Response) => {
+    
