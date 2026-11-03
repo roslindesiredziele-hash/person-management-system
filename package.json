@@ -12,7 +12,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
     "gen": "tsc --ignoreConfig ads/gendata.ts && node ads/gendata.js",
     "gfd": "tsx ads/genfake-data.ts",
     "dev": "tsx watch src/server.ts",
