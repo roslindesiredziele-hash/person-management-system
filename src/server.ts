@@ -64,4 +64,32 @@ app.listen(port, () => {
 });
 
 app.put('/api/Persons/:id', (req: Request, res: Response) => {
-    
+    const num = Number(req.params.id);
+    if (!Number.isInteger(num) || num < 0 || num >= tab.length) {
+        console.log(`wrong id requested: ${req.params.id}`);
+        res.status(400).json({ error: `wrong id requested: ${req.params.id}` });
+    } else {
+        const { name, surname, age, pet } = req.body;
+
+        if(!name || typeof(name) !== 'string' || name.trim() === '') {
+            res.status(400).json({ error: 'wrong name' });
+            return;
+        }
+
+        if(!surname || typeof(surname) !== 'string' || surname.trim() === '') {
+            res.status(400).json({ error: 'wrong surname' });
+            return;
+        }
+        if(!age || typeof(age) !== 'number' || age < 0) {
+            res.status(400).json({ error: 'wrong age' });
+            return;
+        }
+        if(pet && (typeof(pet) !== 'string' || pet.trim() === '')) {
+            res.status(400).json({ error: 'wrong pet' });
+            return;
+        }
+
+        tab[num] = { name, surname, age, pet };
+        res.json(tab[num]);
+    }
+});
