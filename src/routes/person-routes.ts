@@ -104,3 +104,21 @@ personRouterDb.post('/', async (req: Request, res: Response) => {
 });
 
 personRouterDb.delete('/:id', async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id) || id <= 0) {
+        console.log(`wrong id requested: ${req.params.id}`);
+        res.status(400).json({ error: `wrong id requested: ${req.params.id}` });
+        return;
+    }
+
+    const result = await db.run('DELETE FROM people WHERE id = ?', id);
+
+    if (result.changes === 0) {
+        console.log(`Person with id ${id} not found`);
+        res.status(404).json({ error: `Person with id ${id} not found` });
+    } else {
+        console.log(`Person with id ${id} deleted successfully`);
+        res.status(200).json({ message: `Person with id ${id} deleted successfully` });
+    }
+});
