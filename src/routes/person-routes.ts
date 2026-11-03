@@ -35,7 +35,7 @@ personRoutertab.post('/', async (req: Request, res: Response) => {
         res.status(400).json({ error: 'wrong surname' });
         return;
     }
-    if(!age || typeof(age) !== 'number' || age < 0) {
+    if(typeof(age) !== 'number' || Number.isNaN(age) || age < 0) {
         res.status(400).json({ error: 'wrong age' });
         return;
     }
@@ -52,7 +52,7 @@ personRoutertab.post('/', async (req: Request, res: Response) => {
 export const personRouterDb = Router();
 
 personRouterDb.get('/', async (req: Request, res: Response) => {
-    const peopleList = await db.all<PersonDb>('SELECT id, name, surname, age, pet FROM people ORDER BY id');
+    const peopleList = await db.all<PersonDb[]>('SELECT id, name, surname, age, pet FROM people ORDER BY id');
     res.json(peopleList);
 });
 
@@ -84,7 +84,7 @@ personRouterDb.post('/', async (req: Request, res: Response) => {
         res.status(400).json({ error: 'wrong surname' });
         return;
     }
-    if(!age || typeof(age) !== 'number' || age < 0) {
+    if(typeof(age) !== 'number' || Number.isNaN(age) || age < 0) {
         console.log(`wrong age requested: ${req.body.age}`);
         res.status(400).json({ error: 'wrong age' });
         return;
@@ -123,6 +123,8 @@ personRouterDb.delete('/:id', async (req: Request, res: Response) => {
     }
 });
 
+personRouterDb.delete('/', async (req: Request, res: Response) => {
+
 personRouterDb.put('/:id', async (req: Request, res: Response) => {
     const id = Number(req.params.id);
 
@@ -143,7 +145,7 @@ personRouterDb.put('/:id', async (req: Request, res: Response) => {
         res.status(400).json({ error: 'wrong surname' });
         return;
     }
-    if(!age || typeof(age) !== 'number' || age < 0) {
+    if(typeof(age) !== 'number' || Number.isNaN(age) || age < 0) {
         console.log(`wrong age requested: ${req.body.age}`);
         res.status(400).json({ error: 'wrong age' });
         return;
@@ -164,6 +166,6 @@ personRouterDb.put('/:id', async (req: Request, res: Response) => {
         res.status(404).json({ error: `Person with id ${id} not found` });
         return;
     }
-    
+
     res.json(updated);
 });

@@ -14,7 +14,7 @@ app.use(express.static("./public"));
 
 app.use('/api/personstab', personRoutertab);
 app.use('/api/persons', personRouterDb)
-
+/*
 const tab: Person[] = [];
 const p1: Person = { name: "John", surname: "Smith", age: 22, pet: "dog" };
 const p2: Person = { name: "Mary", surname: "Brown", age: 66 };
@@ -45,7 +45,7 @@ app.post('/api/Persons', (req: Request, res: Response) => {
         res.status(400).json({ error: 'wrong surname' });
         return;
     }
-    if (!age || typeof (age) !== 'number' || age < 0) {
+    if (typeof (age) !== 'number' || Number.isNaN(age) || age < 0) {
         res.status(400).json({ error: 'wrong age' });
         return;
     }
@@ -76,7 +76,7 @@ app.put('/api/Persons/:id', (req: Request, res: Response) => {
             res.status(400).json({ error: 'wrong surname' });
             return;
         }
-        if (!age || typeof (age) !== 'number' || age < 0) {
+        if (typeof (age) !== 'number' || Number.isNaN(age) || age < 0) {
             res.status(400).json({ error: 'wrong age' });
             return;
         }
@@ -104,3 +104,4 @@ app.delete('/api/Persons/:id', (req: Request, res: Response) => {
 app.listen(port, () => {
     console.log(`My Server is running at http://localhost:${port}`);
 });
+*/
