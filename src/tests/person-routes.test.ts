@@ -30,3 +30,24 @@ it('should create a new person', async () => {
     expect(res.body.name).toBe('Test');
 
 });
+
+it('should get person by id', async () => {
+
+    const create = await request(app)
+        .post('/api/persons')
+        .send({
+            name: 'John',
+            surname: 'Doe',
+            age: 25
+        });
+
+    const id = create.body.id;
+
+    const res = await request(app)
+        .get(`/api/persons/${id}`);
+
+    expect(res.status).toBe(200);
+    expect(res.body.id).toBe(id);
+
+});
+
