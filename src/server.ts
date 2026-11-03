@@ -12,12 +12,12 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.static("./public"));
 
-app.use('/api/personstab',personRoutertab);
-app.use('/api/persons',personRouterDb)
+app.use('/api/personstab', personRoutertab);
+app.use('/api/persons', personRouterDb)
 
 const tab: Person[] = [];
-const p1: Person = {name: "John", surname: "Smith", age: 22, pet: "dog"};
-const p2: Person = {name: "Mary", surname: "Brown",age: 66};
+const p1: Person = { name: "John", surname: "Smith", age: 22, pet: "dog" };
+const p2: Person = { name: "Mary", surname: "Brown", age: 66 };
 tab.push(p1);
 tab.push(p2);
 
@@ -37,30 +37,26 @@ app.get('/api/Persons/:id', (req: Request, res: Response) => {
 
 app.post('/api/Persons', (req: Request, res: Response) => {
     const { name, surname, age, pet } = req.body;
-    if(!name || typeof(name) !== 'string' || name.trim() === '') {
+    if (!name || typeof (name) !== 'string' || name.trim() === '') {
         res.status(400).json({ error: 'wrong name' });
         return;
     }
-    if(!surname || typeof(surname) !== 'string' || surname.trim() === '') {
+    if (!surname || typeof (surname) !== 'string' || surname.trim() === '') {
         res.status(400).json({ error: 'wrong surname' });
         return;
     }
-    if(!age || typeof(age) !== 'number' || age < 0) {
+    if (!age || typeof (age) !== 'number' || age < 0) {
         res.status(400).json({ error: 'wrong age' });
         return;
     }
-    if(pet && (typeof(pet) !== 'string' || pet.trim() === '')) {
+    if (pet && (typeof (pet) !== 'string' || pet.trim() === '')) {
         res.status(400).json({ error: 'wrong pet' });
         return;
     }
 
-const pers: Person = { name, surname, age, pet };
-tab.push(pers);
-res.status(201).json(pers);
-});
-
-app.listen(port, () => {
-    console.log(`My Server is running at http://localhost:${port}`);
+    const pers: Person = { name, surname, age, pet };
+    tab.push(pers);
+    res.status(201).json(pers);
 });
 
 app.put('/api/Persons/:id', (req: Request, res: Response) => {
@@ -71,20 +67,20 @@ app.put('/api/Persons/:id', (req: Request, res: Response) => {
     } else {
         const { name, surname, age, pet } = req.body;
 
-        if(!name || typeof(name) !== 'string' || name.trim() === '') {
+        if (!name || typeof (name) !== 'string' || name.trim() === '') {
             res.status(400).json({ error: 'wrong name' });
             return;
         }
 
-        if(!surname || typeof(surname) !== 'string' || surname.trim() === '') {
+        if (!surname || typeof (surname) !== 'string' || surname.trim() === '') {
             res.status(400).json({ error: 'wrong surname' });
             return;
         }
-        if(!age || typeof(age) !== 'number' || age < 0) {
+        if (!age || typeof (age) !== 'number' || age < 0) {
             res.status(400).json({ error: 'wrong age' });
             return;
         }
-        if(pet && (typeof(pet) !== 'string' || pet.trim() === '')) {
+        if (pet && (typeof (pet) !== 'string' || pet.trim() === '')) {
             res.status(400).json({ error: 'wrong pet' });
             return;
         }
@@ -103,4 +99,8 @@ app.delete('/api/Persons/:id', (req: Request, res: Response) => {
         const deletedPerson = tab.splice(num, 1)[0];
         res.json(deletedPerson);
     }
+});
+
+app.listen(port, () => {
+    console.log(`My Server is running at http://localhost:${port}`);
 });

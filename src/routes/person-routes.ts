@@ -102,3 +102,5 @@ personRouterDb.post('/', async (req: Request, res: Response) => {
 
     res.status(201).json(pers);
 });
+
+personRouterDb.delete('/:id', async (req: Request, res: Response) => {
