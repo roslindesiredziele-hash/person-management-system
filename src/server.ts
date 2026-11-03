@@ -93,3 +93,5 @@ app.put('/api/Persons/:id', (req: Request, res: Response) => {
         res.json(tab[num]);
     }
 });
+
+app.delete('/api/Persons/:id', (req: Request, res: Response) => {
