@@ -95,3 +95,12 @@ it('should delete person', async () => {
 
 });
 
+it('should delete all people', async () => {
+
+    const res = await request(app)
+        .delete('/api/persons');
+
+    expect(res.status).toBe(200);
+
+});
+
