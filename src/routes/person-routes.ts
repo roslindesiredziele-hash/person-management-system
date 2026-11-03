@@ -124,6 +124,11 @@ personRouterDb.delete('/:id', async (req: Request, res: Response) => {
 });
 
 personRouterDb.delete('/', async (req: Request, res: Response) => {
+    const result = await db.run('DELETE FROM people');
+
+    console.log(`All persons deleted successfully, total deleted: ${result.changes}`);
+    res.status(200).json({ message: `All persons deleted successfully, total deleted: ${result.changes}` });
+});
 
 personRouterDb.put('/:id', async (req: Request, res: Response) => {
     const id = Number(req.params.id);
