@@ -15,3 +15,14 @@ await db.exec(`
         pet TEXT
     )
 `);
+
+await db.exec(`
+    CREATE TABLE IF NOT EXISTS animals (
+        idA INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        species TEXT NOT NULL,
+        breed TEXT NOT NULL,
+        ownerId INTEGER NOT NULL,
+        FOREIGN KEY (ownerId) REFERENCES people(id)
+    )
+`);
